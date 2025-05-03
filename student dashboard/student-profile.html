@@ -20,8 +20,8 @@
             <div class="profile-image-container">
                 <img src="images/image2.png" alt="Student Profile" class="large-profile-pic">
             </div>
-            <h1 class="student-name">Aditya Chaudhary</h1>
-            <p class="student-email">aditya@example.com</p>
+            <h1 class="student-name" id="profileStudentName">Student</h1>
+            <p class="student-email" id="profileStudentEmail">student@example.com</p>
         </div>
 
         <div class="profile-stats">
@@ -81,7 +81,33 @@
         </div>
     </div>
 
-    <script src="student-profile.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBILtis_zBeNFXBLMj6UqUTTERYLI5bio",
+            authDomain: "mentorverse-6416d.firebaseapp.com",
+            projectId: "mentorverse-6416d",
+            storageBucket: "mentorverse-6416d.appspot.com",
+            messagingSenderId: "291855397478",
+            appId: "1:291855397478:web:e7b0e8697e7d90b83a73a7",
+            measurementId: "G-QESLR29GNC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make Firebase services available globally
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+    </script>
+
+    <script type="module" src="student-profile.js"></script>
 </body>
 </html>
 

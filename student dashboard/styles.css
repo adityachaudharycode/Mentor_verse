@@ -1063,40 +1063,7 @@ body {
   width: fit-content;
 }
 
-/* Scroll buttons */
-.chat-scroll-buttons {
-  position: absolute;
-  right: 20px;
-  bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 100;
-}
 
-.scroll-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  opacity: 0.7;
-}
-
-.scroll-btn:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.scroll-btn:active {
-  transform: scale(0.95);
-}
 
 .message.sent {
   align-self: flex-end;
@@ -1470,6 +1437,15 @@ body {
 
   .chat-sidebar.active {
     width: 100%;
+  }
+
+  /* Ensure chat is accessible on mobile */
+  .chat-section {
+    display: block !important;
+  }
+
+  .chat-section.hidden {
+    display: none !important;
   }
 }
 

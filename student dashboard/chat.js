@@ -86,17 +86,7 @@ function setupEventListeners() {
     // Search conversations
     chatSearch.addEventListener('input', filterConversations);
 
-    // Scroll buttons
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', scrollToTop);
-    }
-
-    if (scrollBottomBtn) {
-        scrollBottomBtn.addEventListener('click', scrollToBottom);
-    }
+    // Auto-scroll functionality will be handled by the browser
 
     // Navigation between sections
     document.querySelectorAll('.menu-items a').forEach(link => {

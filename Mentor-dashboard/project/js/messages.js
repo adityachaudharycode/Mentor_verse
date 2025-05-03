@@ -80,22 +80,7 @@ function setupEventListeners() {
         messageSearch.addEventListener('input', filterConversations);
     }
 
-    // Scroll buttons
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-    const forceScrollBtn = document.getElementById('forceScrollBtn');
-
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', scrollToTop);
-    }
-
-    if (scrollBottomBtn) {
-        scrollBottomBtn.addEventListener('click', scrollToBottom);
-    }
-
-    if (forceScrollBtn) {
-        forceScrollBtn.addEventListener('click', forceScrollToBottom);
-    }
+    // Auto-scroll functionality will be handled by the browser
 
     // We'll use the navigation.js file for section navigation
     // This code was causing conflicts with the main navigation

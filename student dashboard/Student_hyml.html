@@ -149,15 +149,7 @@
             </div>
           </div>
 
-          <!-- Scroll buttons -->
-          <div class="chat-scroll-buttons">
-            <button class="btn-icon scroll-btn scroll-top-btn" id="scrollTopBtn" title="Scroll to Top">
-              <i class="fas fa-arrow-up"></i>
-            </button>
-            <button class="btn-icon scroll-btn scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to Bottom">
-              <i class="fas fa-arrow-down"></i>
-            </button>
-          </div>
+
           <div class="chat-input-container" id="chatInputContainer">
             <button class="btn-icon" title="Attach File" id="attachFileBtn">
               <i class="fas fa-paperclip"></i>
@@ -205,7 +197,7 @@
   <!-- Load student name from Firebase -->
   <script type="module">
     import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
-    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+    import { getFirestore, doc, getDoc, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
     const auth = getAuth();
     const db = getFirestore();
@@ -213,25 +205,63 @@
 
     onAuthStateChanged(auth, async (user) => {
       if (user) {
+        console.log('Student authenticated:', user.uid);
         try {
           // First try to get the display name from the auth object
           if (user.displayName) {
-            studentNameElement.textContent = user.displayName;
+            updateStudentName(user.displayName);
+            console.log('Using display name from auth:', user.displayName);
+          }
+
+          // Try to get additional info from Firestore (both collections for compatibility)
+          // First try 'students' collection
+          let studentDoc = await getDoc(doc(db, 'students', user.uid));
+
+          // If not found, try 'users' collection
+          if (!studentDoc.exists()) {
+            studentDoc = await getDoc(doc(db, 'users', user.uid));
+          }
+
+          if (studentDoc.exists()) {
+            const studentData = studentDoc.data();
+            console.log('Student data retrieved:', studentData);
+
+            // Update name if available and not already set
+            if (studentData.name && (!user.displayName || user.displayName === '')) {
+              updateStudentName(studentData.name);
+            }
           } else {
-            // If not available, try to get it from Firestore
-            const studentDoc = await getDoc(doc(db, 'students', user.uid));
-            if (studentDoc.exists() && studentDoc.data().name) {
-              studentNameElement.textContent = studentDoc.data().name;
+            console.log('No student document found in Firestore');
+
+            // As a fallback, try to query the users collection by email
+            if (user.email) {
+              const usersQuery = query(collection(db, 'users'), where('email', '==', user.email));
+              const querySnapshot = await getDocs(usersQuery);
+
+              if (!querySnapshot.empty) {
+                const userData = querySnapshot.docs[0].data();
+                if (userData.name) {
+                  updateStudentName(userData.name);
+                }
+              }
             }
           }
         } catch (error) {
-          console.error('Error loading student name:', error);
+          console.error('Error loading student data:', error);
         }
       } else {
-        // User is not logged in, redirect to login page
-        // window.location.href = 'login.html';
+        console.log('User not authenticated, redirecting to login');
+        window.location.href = '../login.html';
       }
     });
+
+    // Update student name in all places
+    function updateStudentName(name) {
+      console.log('Updating student name to:', name);
+      if (studentNameElement) {
+        studentNameElement.textContent = name;
+      }
+    }
   </script>
 
   <a href="https://mentorversebot.onrender.com/" target="_blank" class="chatbot-icon" id="chatbotIcon">

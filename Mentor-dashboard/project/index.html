@@ -360,16 +360,7 @@
                 <!-- Messages will be loaded here dynamically -->
               </div>
 
-              <!-- Scroll buttons - Only keeping the essential ones -->
-              <div class="chat-scroll-buttons">
-                <button class="btn-icon scroll-btn scroll-top-btn" id="scrollTopBtn" title="Scroll to Top">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-                <button class="btn-icon scroll-btn scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to Bottom">
-                  <i class="fas fa-arrow-down"></i>
-                </button>
-                <!-- Manual scroll button hidden since scrolling is fixed -->
-              </div>
+
 
               <div class="messages-chat-footer">
                 <button class="btn-icon" title="Attach File" id="attachFileBtn">
@@ -1361,32 +1352,58 @@
     const mentorNameElement = document.getElementById('mentorName');
     const headerMentorNameElement = document.getElementById('headerMentorName');
     const welcomeMentorNameElement = document.getElementById('welcomeMentorName');
+    const mentorExpertiseElement = document.getElementById('mentorExpertise');
 
     // Listen for auth state changes
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
+        console.log('Mentor authenticated:', user.uid);
         try {
           // First try to get the display name from the auth object
           if (user.displayName) {
             updateMentorName(user.displayName);
-          } else {
-            // If not available, try to get it from Firestore
-            const mentorDoc = await firebase.firestore().collection('mentors').doc(user.uid).get();
-            if (mentorDoc.exists && mentorDoc.data().name) {
-              updateMentorName(mentorDoc.data().name);
+            console.log('Using display name from auth:', user.displayName);
+          }
+
+          // Try to get additional info from Firestore (both collections for compatibility)
+          // First try 'mentors' collection
+          let mentorDoc = await firebase.firestore().collection('mentors').doc(user.uid).get();
+
+          // If not found, try 'users' collection
+          if (!mentorDoc.exists) {
+            mentorDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+          }
+
+          if (mentorDoc.exists) {
+            const mentorData = mentorDoc.data();
+            console.log('Mentor data retrieved:', mentorData);
+
+            // Update name if available and not already set
+            if (mentorData.name && (!user.displayName || user.displayName === '')) {
+              updateMentorName(mentorData.name);
             }
+
+            // Update expertise if available
+            if (mentorData.expertise && mentorExpertiseElement) {
+              mentorExpertiseElement.textContent = mentorData.expertise;
+            } else if (mentorData.field && mentorExpertiseElement) {
+              mentorExpertiseElement.textContent = mentorData.field;
+            }
+          } else {
+            console.log('No mentor document found in Firestore');
           }
         } catch (error) {
-          console.error('Error loading mentor name:', error);
+          console.error('Error loading mentor data:', error);
         }
       } else {
-        // User is not logged in, redirect to login page
-        // window.location.href = 'login.html';
+        console.log('User not authenticated, redirecting to login');
+        window.location.href = '../../login.html';
       }
     });
 
     // Update mentor name in all places
     function updateMentorName(name) {
+      console.log('Updating mentor name to:', name);
       if (mentorNameElement) mentorNameElement.textContent = name;
       if (headerMentorNameElement) headerMentorNameElement.textContent = name;
       if (welcomeMentorNameElement) welcomeMentorNameElement.textContent = name.split(' ')[0];
