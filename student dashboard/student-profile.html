@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - MentorVerse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="Student_hyml.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </nav>
+
+    <div class="student-profile-container">
+        <div class="profile-header">
+            <div class="profile-image-container">
+                <img src="images/image2.png" alt="Student Profile" class="large-profile-pic">
+            </div>
+            <h1 class="student-name">Aditya Chaudhary</h1>
+            <p class="student-email">aditya@example.com</p>
+        </div>
+
+        <div class="profile-stats">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>12</h3>
+                <p>Followed Mentors</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3>45h</h3>
+                <p>Time Spent</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-book"></i>
+                <h3>8</h3>
+                <p>Courses Enrolled</p>
+            </div>
+        </div>
+
+        <div class="profile-sections">
+            <section class="followed-mentors">
+                <h2>Followed Mentors</h2>
+                <div class="mentor-grid" id="followedMentorsGrid">
+                    <!-- Followed mentors will be loaded here -->
+                </div>
+            </section>
+
+            <section class="student-details">
+                <h2>Personal Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">Location:</span>
+                        <span class="value">Mumbai, India</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Preparing For:</span>
+                        <span class="value">GATE CS</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Member Since:</span>
+                        <span class="value">January 2023</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Last Active:</span>
+                        <span class="value">2 hours ago</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="joined-communities">
+                <h2>Joined Communities</h2>
+                <div class="community-grid" id="joinedCommunitiesGrid">
+                    <!-- Joined communities will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="student-profile.js"></script>
+</body>
+</html>
+
+

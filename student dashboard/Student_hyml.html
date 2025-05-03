@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MentorVerse - Student Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="menu-trigger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="user-info">
+      <a href="student-profile.html" class="profile-link">
+        <img src="images/image2.png" alt="Profile" class="profile-pic">
+        <span class="user-name" id="studentName">Student</span>
+      </a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-bell"></i>
+      <span class="notification-badge">3</span>
+      <i class="fas fa-cog"></i>
+    </div>
+  </nav>
+
+  <!-- Sliding Menu -->
+  <div class="sliding-menu" id="slidingMenu">
+    <div class="menu-header">
+      <h2>MentorVerse</h2>
+      <i class="fas fa-times close-menu" onclick="toggleMenu()"></i>
+    </div>
+    <ul class="menu-items">
+      <li><i class="fas fa-home"></i><a href="#dashboard">Dashboard</a></li>
+      <li><i class="fas fa-comment"></i><a href="#chat">Chat with Mentors</a></li>
+      <li><i class="fas fa-users"></i><a href="#communities">Communities</a></li>
+      <li><i class="fas fa-calendar-alt"></i><a href="#seminars">Seminars</a></li>
+      <li><i class="fas fa-book"></i><a href="#resources">Study Resources</a></li>
+      <li><i class="fas fa-chart-line"></i><a href="#progress">Progress Tracker</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+    <!-- Dashboard Section -->
+    <section class="dashboard-section active" id="dashboard">
+      <div class="search-box">
+        <h2>Find Your Perfect Mentor</h2>
+        <div class="search-container">
+          <select class="exam-select">
+            <option value="">Select Exam</option>
+            <option value="GATE CS">GATE CS</option>
+            <option value="GATE EE">GATE EE</option>
+            <option value="CAT">CAT</option>
+            <option value="IAS">IAS</option>
+          </select>
+          <input type="text" placeholder="Search mentors...">
+          <button class="search-btn">Search</button>
+        </div>
+      </div>
+
+      <div class="mentor-cards">
+        <!-- Mentor cards will be added here dynamically -->
+      </div>
+    </section>
+
+    <!-- Communities Section -->
+    <section class="communities-section hidden" id="communities">
+      <h2>Popular Communities</h2>
+      <div class="community-cards">
+        <!-- Community cards will be dynamically loaded here -->
+      </div>
+    </section>
+
+    <!-- Seminars Section -->
+    <section class="seminars-section hidden" id="seminars">
+      <h2>Upcoming Seminars</h2>
+      <div class="seminar-cards">
+        <p class="no-seminars">No upcoming seminars</p>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section hidden" id="resources">
+      <h2>Study Resources</h2>
+      <div class="subject-grid">
+        <!-- Subject cards will be added here -->
+      </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section class="chat-section hidden" id="chat">
+      <h2>Chat with Mentors</h2>
+      <div class="chat-container">
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-header">
+            <h3>Conversations</h3>
+            <button class="new-chat-btn" id="newChatBtn">
+              <i class="fas fa-plus"></i> New Chat
+            </button>
+          </div>
+          <div class="chat-search">
+            <input type="text" placeholder="Search conversations..." id="chatSearch">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="conversation-list" id="conversationList">
+            <!-- Conversations will be loaded here dynamically -->
+            <div class="empty-conversations-message">
+              <i class="fas fa-comment-slash"></i>
+              <p>No conversations yet</p>
+              <p>Start a new chat with a mentor</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-main">
+          <div class="chat-header" id="chatHeader">
+            <div class="chat-header-info">
+              <img src="https://placehold.co/45" alt="Mentor" id="chatHeaderAvatar">
+              <div>
+                <h3 id="chatHeaderName">Select a conversation</h3>
+                <p id="chatHeaderStatus">No active chat</p>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button class="btn-icon" title="Video Call" id="videoCallBtn">
+                <i class="fas fa-video"></i>
+              </button>
+              <button class="btn-icon" title="Voice Call" id="voiceCallBtn">
+                <i class="fas fa-phone"></i>
+              </button>
+              <button class="btn-icon" title="Mentor Profile" id="viewProfileBtn">
+                <i class="fas fa-user"></i>
+              </button>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be loaded here dynamically -->
+            <div class="chat-welcome">
+              <div class="chat-welcome-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3>Welcome to MentorVerse Chat</h3>
+              <p>Select a conversation or start a new chat with a mentor</p>
+            </div>
+          </div>
+
+          <!-- Scroll buttons -->
+          <div class="chat-scroll-buttons">
+            <button class="btn-icon scroll-btn scroll-top-btn" id="scrollTopBtn" title="Scroll to Top">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+            <button class="btn-icon scroll-btn scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to Bottom">
+              <i class="fas fa-arrow-down"></i>
+            </button>
+          </div>
+          <div class="chat-input-container" id="chatInputContainer">
+            <button class="btn-icon" title="Attach File" id="attachFileBtn">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <input type="text" placeholder="Type your message here..." id="messageInput" disabled>
+            <button class="btn-icon send-btn" id="sendMessageBtn" disabled>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBILtis_zBeNFXBLMj6UqUTTERYLI5bio",
+      authDomain: "mentorverse-6416d.firebaseapp.com",
+      projectId: "mentorverse-6416d",
+      storageBucket: "mentorverse-6416d.appspot.com",
+      messagingSenderId: "291855397478",
+      appId: "1:291855397478:web:e7b0e8697e7d90b83a73a7",
+      measurementId: "G-QESLR29GNC"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Make Firebase services available globally
+    window.firebaseAuth = auth;
+    window.firebaseDb = db;
+  </script>
+
+  <script src="dashboard.js"></script>
+  <script src="communities.js"></script>
+  <script type="module" src="chat.js"></script>
+
+  <!-- Load student name from Firebase -->
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    const auth = getAuth();
+    const db = getFirestore();
+    const studentNameElement = document.getElementById('studentName');
+
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        try {
+          // First try to get the display name from the auth object
+          if (user.displayName) {
+            studentNameElement.textContent = user.displayName;
+          } else {
+            // If not available, try to get it from Firestore
+            const studentDoc = await getDoc(doc(db, 'students', user.uid));
+            if (studentDoc.exists() && studentDoc.data().name) {
+              studentNameElement.textContent = studentDoc.data().name;
+            }
+          }
+        } catch (error) {
+          console.error('Error loading student name:', error);
+        }
+      } else {
+        // User is not logged in, redirect to login page
+        // window.location.href = 'login.html';
+      }
+    });
+  </script>
+
+  <a href="https://mentorversebot.onrender.com/" target="_blank" class="chatbot-icon" id="chatbotIcon">
+    <i class="fas fa-robot"></i>
+  </a>
+</body>
+</html>

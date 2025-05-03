@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Mentorverse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Mentorverse</div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Welcome Back</h2>
+            <div class="auth-options">
+                <button id="googleSignIn" class="social-auth-btn">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <div class="divider">or</div>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" required placeholder="Password">
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <p class="auth-links">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+                <span>Don't have an account? <a href="signup.html">Sign Up</a></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="firebase-config.js"></script>
+    <!-- Theme Toggle -->
+    <script src="theme-toggle.js"></script>
+    <!-- Auth Logic -->
+    <script src="auth.js"></script>
+</body>
+</html>
+
+

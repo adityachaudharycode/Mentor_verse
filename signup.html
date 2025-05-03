@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Mentorverse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Mentorverse</div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box signup-box">
+            <h2>Create Account</h2>
+
+            <div class="role-selector">
+                <label>I want to join as:</label>
+                <select id="roleSelect" class="role-dropdown">
+                    <option value="student">Student</option>
+                    <option value="mentor">Mentor</option>
+                </select>
+            </div>
+
+            <!-- Student Form -->
+            <form id="studentSignupForm" class="auth-form signup-form">
+                <div class="form-group">
+                    <input type="text" id="studentName" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="studentEmail" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="studentPassword" required placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="studentAge" required placeholder="Age" min="13" max="25">
+                </div>
+                <div class="form-group">
+                    <select id="studentClass" required class="form-select">
+                        <option value="">Select Your Class</option>
+                        <option value="8">8th Grade</option>
+                        <option value="9">9th Grade</option>
+                        <option value="10">10th Grade</option>
+                        <option value="11">11th Grade</option>
+                        <option value="12">12th Grade</option>
+                        <option value="college">College</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="studentSubjects" required class="form-select" multiple>
+                        <option value="">Select Subjects (Multiple)</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="biology">Biology</option>
+                        <option value="computer_science">Computer Science</option>
+                        <option value="english">English</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up as Student</button>
+            </form>
+
+            <!-- Mentor Form -->
+            <form id="mentorSignupForm" class="auth-form signup-form" style="display: none;">
+                <div class="form-group">
+                    <input type="text" id="mentorName" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="mentorEmail" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="mentorPassword" required placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="mentorAge" required placeholder="Age" min="21">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="mentorQualification" required placeholder="Highest Qualification">
+                </div>
+                <div class="form-group">
+                    <select id="mentorInstitute" required class="form-select">
+                        <option value="">Select Your Institute</option>
+                        <option value="iit">IIT</option>
+                        <option value="nit">NIT</option>
+                        <option value="iiit">IIIT</option>
+                        <option value="other">Other Top Institute</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="mentorExperience" required placeholder="Years of Experience" min="0">
+                </div>
+                <div class="form-group">
+                    <select id="mentorSubjects" required class="form-select" multiple>
+                        <option value="">Select Subjects You Can Teach (Multiple)</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="biology">Biology</option>
+                        <option value="computer_science">Computer Science</option>
+                        <option value="english">English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="mentorBio" required placeholder="Brief bio and teaching approach"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up as Mentor</button>
+            </form>
+
+            <p class="auth-links">
+                Already have an account? <a href="login.html">Log In</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <!-- Theme Toggle -->
+    <script src="theme-toggle.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

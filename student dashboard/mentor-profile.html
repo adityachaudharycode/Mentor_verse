@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mentor-profile-page" id="mentorProfileContainer">
+        <!-- Profile content will be loaded here -->
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mentor = JSON.parse(sessionStorage.getItem('selectedMentor'));
+            if (!mentor) {
+                window.location.href = 'Student_hyml.html';
+                return;
+            }
+            
+            const container = document.getElementById('mentorProfileContainer');
+            container.innerHTML = `
+                <div class="profile-header">
+                    <img src="${mentor.image}" alt="${mentor.name}" class="profile-img">
+                    <div class="profile-info">
+                        <h2>${mentor.name}</h2>
+                        <p class="expertise">${mentor.expertise} Expert</p>
+                        <p class="rating">⭐ ${mentor.rating} Rating</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <h3>${mentor.experience}</h3>
+                                <p>Experience</p>
+                            </div>
+                            <div class="stat">
+                                <h3>${mentor.students}+</h3>
+                                <p>Students</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <section class="about">
+                        <h3>About</h3>
+                        <p>${mentor.about}</p>
+                    </section>
+                    <section class="achievements">
+                        <h3>Achievements</h3>
+                        <ul>
+                            ${mentor.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                        </ul>
+                    </section>
+                    <section class="booking">
+                        <h3>Book a Session</h3>
+                        <p class="price">${mentor.price}</p>
+                        <button class="book-btn">Schedule Meeting</button>
+                    </section>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

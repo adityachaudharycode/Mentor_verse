@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentorverse - Mentor Dashboard</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/inbox.css">
+  <link rel="stylesheet" href="css/messages.css">
+  <link rel="stylesheet" href="css/profiles.css">
+  <link rel="stylesheet" href="css/scheduling.css">
+  <link rel="stylesheet" href="css/resources.css">
+  <link rel="stylesheet" href="css/analytics.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fas fa-graduation-cap logo-icon"></i>
+          <h2>Mentorverse</h2>
+        </div>
+        <button class="mobile-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="mentor-profile">
+        <div class="mentor-avatar">
+          <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Mentor Avatar">
+          <span class="status-indicator online"></span>
+        </div>
+        <div class="mentor-info">
+          <h3 id="mentorName">Mentor</h3>
+          <p id="mentorExpertise">Computer Science</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active" data-section="dashboard">
+            <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          </li>
+          <li data-section="student-messages">
+            <a href="#student-messages"><i class="fas fa-comment-dots"></i> Student Messages <span class="badge message-badge">0</span></a>
+          </li>
+          <li data-section="student-profiles">
+            <a href="#student-profiles"><i class="fas fa-user-graduate"></i> Student Profiles</a>
+          </li>
+          <li data-section="scheduling">
+            <a href="#scheduling"><i class="fas fa-calendar-alt"></i> Scheduling</a>
+          </li>
+          <li data-section="resources">
+            <a href="#resources"><i class="fas fa-book"></i> Resources</a>
+          </li>
+          <li data-section="analytics">
+            <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="settings-btn">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+        <button class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search students, resources...">
+        </div>
+        <div class="header-actions">
+          <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="badge">7</span>
+          </button>
+          <button class="message-btn">
+            <i class="fas fa-envelope"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="user-menu">
+            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User Avatar">
+            <span id="headerMentorName">Mentor</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Section -->
+      <section class="content-section active" id="dashboard">
+        <div class="section-header">
+          <h1>Mentor Dashboard</h1>
+          <p>Welcome back, <span id="welcomeMentorName">Mentor</span>! Here's your activity overview.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="stat-info">
+              <h3>46</h3>
+              <p>Total Students</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+              </div>
+              <span>+12% this month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3>28</h3>
+              <p>Sessions Completed</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar">
+                <div class="progress" style="width: 65%"></div>
+              </div>
+              <span>+8% this month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>64</h3>
+              <p>Pending Queries</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar">
+                <div class="progress" style="width: 40%"></div>
+              </div>
+              <span>-5% this week</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-info">
+              <h3>4.8</h3>
+              <p>Rating</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar">
+                <div class="progress" style="width: 90%"></div>
+              </div>
+              <span>+0.2 this month</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="dashboard-card upcoming-sessions">
+            <div class="card-header">
+              <h2>Upcoming Sessions</h2>
+              <a href="#scheduling" class="view-all">View All</a>
+            </div>
+            <div class="session-list">
+              <div class="session-item">
+                <div class="session-time">
+                  <h3>Today</h3>
+                  <p>11:00 AM</p>
+                </div>
+                <div class="session-info">
+                  <h4>Career Guidance Session</h4>
+                  <p>with Ananya Sharma</p>
+                </div>
+                <div class="session-actions">
+                  <button class="btn-primary">Join</button>
+                  <button class="btn-outline">Reschedule</button>
+                </div>
+              </div>
+
+              <div class="session-item">
+                <div class="session-time">
+                  <h3>Today</h3>
+                  <p>2:30 PM</p>
+                </div>
+                <div class="session-info">
+                  <h4>Project Review</h4>
+                  <p>with Vikram Patel</p>
+                </div>
+                <div class="session-actions">
+                  <button class="btn-primary">Join</button>
+                  <button class="btn-outline">Reschedule</button>
+                </div>
+              </div>
+
+              <div class="session-item">
+                <div class="session-time">
+                  <h3>Tomorrow</h3>
+                  <p>10:00 AM</p>
+                </div>
+                <div class="session-info">
+                  <h4>Technical Interview Prep</h4>
+                  <p>with Arjun Mehta</p>
+                </div>
+                <div class="session-actions">
+                  <button class="btn-outline">Prepare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card recent-queries">
+            <div class="card-header">
+              <h2>Recent Queries</h2>
+              <a href="#student-messages" class="view-all">View All</a>
+            </div>
+            <div class="query-list">
+              <div class="query-item high">
+                <div class="query-header">
+                  <div class="student-info">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Student Avatar">
+                    <div>
+                      <h4>Priya Malhotra</h4>
+                      <p>Computer Science</p>
+                    </div>
+                  </div>
+                  <span class="query-time">2 hours ago</span>
+                </div>
+                <div class="query-content">
+                  <p>Need guidance on my final year project on AI-based medical diagnosis system...</p>
+                </div>
+                <div class="query-footer">
+                  <span class="query-tag high">High Priority</span>
+                  <button class="btn-text" onclick="window.location.href='#student-messages'">Reply Now</button>
+                </div>
+              </div>
+
+              <div class="query-item medium">
+                <div class="query-header">
+                  <div class="student-info">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student Avatar">
+                    <div>
+                      <h4>Rahul Singh</h4>
+                      <p>Data Science</p>
+                    </div>
+                  </div>
+                  <span class="query-time">5 hours ago</span>
+                </div>
+                <div class="query-content">
+                  <p>Looking for feedback on my resume before applying for internships at top tech companies...</p>
+                </div>
+                <div class="query-footer">
+                  <span class="query-tag medium">Medium Priority</span>
+                  <button class="btn-text" onclick="window.location.href='#student-messages'">Reply Now</button>
+                </div>
+              </div>
+
+              <div class="query-item low">
+                <div class="query-header">
+                  <div class="student-info">
+                    <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Student Avatar">
+                    <div>
+                      <h4>Neha Gupta</h4>
+                      <p>Web Development</p>
+                    </div>
+                  </div>
+                  <span class="query-time">Yesterday</span>
+                </div>
+                <div class="query-content">
+                  <p>Would like to discuss potential career paths in frontend vs. backend development...</p>
+                </div>
+                <div class="query-footer">
+                  <span class="query-tag low">Low Priority</span>
+                  <button class="btn-text" onclick="window.location.href='#student-messages'">Reply Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Student Messages Section -->
+      <section class="content-section" id="student-messages">
+        <div class="section-header">
+          <h1>Student Messages</h1>
+          <p>Real-time chat with your students</p>
+        </div>
+
+        <div class="messages-container">
+          <div class="messages-sidebar">
+            <div class="messages-header">
+              <h3>Conversations</h3>
+              <button class="btn-primary new-message-btn" id="newMessageBtn">
+                <i class="fas fa-plus"></i> New Message
+              </button>
+            </div>
+            <div class="messages-search">
+              <input type="text" placeholder="Search conversations..." id="messageSearch">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="conversation-list" id="conversationList">
+              <!-- Conversations will be loaded here dynamically -->
+              <div class="empty-conversations-message">
+                <i class="fas fa-comment-slash"></i>
+                <p>No conversations yet</p>
+                <p>Start a new chat with a student</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="messages-main">
+            <div class="messages-welcome" id="messagesWelcome">
+              <div class="welcome-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h2>Welcome to Student Messages</h2>
+              <p>Select a conversation or start a new chat with a student</p>
+              <button class="btn-primary" id="startNewChatBtn">
+                <i class="fas fa-plus"></i> Start New Chat
+              </button>
+            </div>
+
+            <div class="messages-chat hidden" id="messagesChat">
+              <div class="messages-chat-header">
+                <div class="chat-user">
+                  <img src="https://placehold.co/45" alt="Student" id="chatHeaderAvatar">
+                  <div>
+                    <h3 id="chatHeaderName">Student Name</h3>
+                    <p id="chatHeaderStatus">Student • Year</p>
+                  </div>
+                </div>
+                <div class="chat-actions">
+                  <button class="btn-icon" title="Video Call" id="videoCallBtn">
+                    <i class="fas fa-video"></i>
+                  </button>
+                  <button class="btn-icon" title="Voice Call" id="voiceCallBtn">
+                    <i class="fas fa-phone"></i>
+                  </button>
+                  <button class="btn-icon" title="Student Profile" id="viewProfileBtn">
+                    <i class="fas fa-user"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="messages-chat-body" id="chatMessages">
+                <!-- Messages will be loaded here dynamically -->
+              </div>
+
+              <!-- Scroll buttons - Only keeping the essential ones -->
+              <div class="chat-scroll-buttons">
+                <button class="btn-icon scroll-btn scroll-top-btn" id="scrollTopBtn" title="Scroll to Top">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <button class="btn-icon scroll-btn scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to Bottom">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+                <!-- Manual scroll button hidden since scrolling is fixed -->
+              </div>
+
+              <div class="messages-chat-footer">
+                <button class="btn-icon" title="Attach File" id="attachFileBtn">
+                  <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="text" placeholder="Type your message here..." id="messageInput">
+                <button class="btn-icon send-btn" id="sendMessageBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Student Profiles Section -->
+      <section class="content-section" id="student-profiles">
+        <div class="section-header">
+          <h1>Student Profiles</h1>
+          <div class="search-filter">
+            <div class="search-input">
+              <i class="fas fa-search"></i>
+              <input type="text" id="studentSearch" placeholder="Search students...">
+            </div>
+            <div class="filter-container">
+              <div class="filter-group">
+                <label for="program-filter">Program:</label>
+                <select id="program-filter" class="filter-select">
+                  <option value="all">All Programs</option>
+                  <option value="btech">B.Tech</option>
+                  <option value="mtech">M.Tech</option>
+                  <option value="mca">MCA</option>
+                  <option value="bca">BCA</option>
+                  <option value="phd">Ph.D</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="year-filter">Year:</label>
+                <select id="year-filter" class="filter-select">
+                  <option value="all">All Years</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="interest-filter">Interest:</label>
+                <select id="interest-filter" class="filter-select">
+                  <option value="all">All Interests</option>
+                  <option value="ai">Artificial Intelligence</option>
+                  <option value="webdev">Web Development</option>
+                  <option value="mobile">Mobile Development</option>
+                  <option value="data">Data Science</option>
+                  <option value="cyber">Cybersecurity</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="student-grid" id="studentGrid">
+          <div class="student-card" data-id="1" data-program="btech" data-year="3" data-interest="ai">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Priya Malhotra</h3>
+                <p>Computer Science • B.Tech</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 8 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 12 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>3rd Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>9.2/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status active">Active</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">Artificial Intelligence</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="tag">Healthcare Tech</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+                <p>AI-based Medical Diagnosis System</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+
+          <div class="student-card" data-id="2" data-program="mtech" data-year="2" data-interest="data">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Rahul Singh</h3>
+                <p>Data Science • M.Tech</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 5 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 7 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>2nd Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>8.7/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status active">Active</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">Big Data</span>
+                  <span class="tag">Analytics</span>
+                  <span class="tag">Deep Learning</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+                <p>Predictive Analytics for Stock Market</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+
+          <div class="student-card" data-id="3" data-program="bca" data-year="3" data-interest="webdev">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Neha Gupta</h3>
+                <p>Web Development • BCA</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 3 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 5 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>3rd Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>8.9/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status inactive">Inactive</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">Frontend</span>
+                  <span class="tag">UI/UX</span>
+                  <span class="tag">React</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+
+                <p>E-commerce Platform with React</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+
+          <div class="student-card" data-id="4" data-program="btech" data-year="4" data-interest="cyber">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Vikram Patel</h3>
+                <p>Computer Science • B.Tech</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 6 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 9 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>4th Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>9.5/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status active">Active</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">Cloud Computing</span>
+                  <span class="tag">DevOps</span>
+                  <span class="tag">System Design</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+                <p>Scalable Microservices Architecture</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+
+          <div class="student-card" data-id="5" data-program="mtech" data-year="1" data-interest="ai">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Anjali Desai</h3>
+                <p>Artificial Intelligence • M.Tech</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 4 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 6 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>1st Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>9.0/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status active">Active</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">NLP</span>
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">Robotics</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+                <p>Emotion Recognition in Text</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+
+          <div class="student-card" data-id="6" data-program="btech" data-year="4" data-interest="mobile">
+            <div class="student-header">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Student Avatar">
+              <div class="student-info">
+                <h3>Arjun Mehta</h3>
+                <p>Computer Science • B.Tech</p>
+                <div class="student-stats">
+                  <span><i class="fas fa-calendar-check"></i> 2 Sessions</span>
+                  <span><i class="fas fa-comment"></i> 4 Queries</span>
+                </div>
+              </div>
+            </div>
+            <div class="student-details">
+              <div class="detail-row">
+                <div class="detail-item">
+                  <h4>Year</h4>
+                  <p>4th Year</p>
+                </div>
+                <div class="detail-item">
+                  <h4>GPA</h4>
+                  <p>8.6/10</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Status</h4>
+                  <p class="status active">Active</p>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Interests</h4>
+                <div class="tag-container">
+                  <span class="tag">Algorithms</span>
+                  <span class="tag">Competitive Programming</span>
+                  <span class="tag">System Design</span>
+                </div>
+              </div>
+              <div class="detail-section">
+                <h4>Current Project</h4>
+                <p>Efficient Graph Algorithms</p>
+              </div>
+            </div>
+            <div class="student-footer">
+              <button class="btn-outline">View Profile</button>
+              <button class="btn-primary" onclick="window.location.href='#student-messages'">Message</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scheduling Section -->
+      <section class="content-section" id="scheduling">
+        <div class="section-header">
+          <h1>Scheduling & Availability</h1>
+          <div class="calendar-nav">
+            <button class="btn-icon" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+            <h2 id="currentMonth">September 2025</h2>
+            <button class="btn-icon" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+            <button class="btn-outline" id="todayBtn">Today</button>
+          </div>
+        </div>
+
+        <div class="schedule-container">
+          <div class="calendar-sidebar">
+            <div class="availability-section">
+              <h3>Your Availability</h3>
+              <div class="toggle-container">
+                <span>Set as Available</span>
+                <label class="toggle">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="time-slots">
+                <div class="time-slot">
+                  <input type="checkbox" id="morning" checked>
+                  <label for="morning">Morning (9 AM - 12 PM)</label>
+                </div>
+                <div class="time-slot">
+                  <input type="checkbox" id="afternoon" checked>
+                  <label for="afternoon">Afternoon (1 PM - 4 PM)</label>
+                </div>
+                <div class="time-slot">
+                  <input type="checkbox" id="evening">
+                  <label for="evening">Evening (5 PM - 8 PM)</label>
+                </div>
+              </div>
+              <button class="btn-primary" id="updateAvailability">Update Availability</button>
+            </div>
+
+            <div class="upcoming-section">
+              <h3>Upcoming Sessions</h3>
+              <div class="upcoming-list">
+                <div class="upcoming-item">
+                  <div class="upcoming-date">
+                    <span class="day">15</span>
+                    <span class="month">Sept</span>
+                  </div>
+                  <div class="upcoming-details">
+                    <h4>Career Guidance Session</h4>
+                    <p>with Ananya Sharma</p>
+                    <p class="time"><i class="fas fa-clock"></i> 11:00 AM - 12:00 PM</p>
+                  </div>
+                </div>
+
+                <div class="upcoming-item">
+                  <div class="upcoming-date">
+                    <span class="day">15</span>
+                    <span class="month">Sept</span>
+                  </div>
+                  <div class="upcoming-details">
+                    <h4>Project Review</h4>
+                    <p>with Vikram Patel</p>
+                    <p class="time"><i class="fas fa-clock"></i> 2:30 PM - 3:30 PM</p>
+                  </div>
+                </div>
+
+                <div class="upcoming-item">
+                  <div class="upcoming-date">
+                    <span class="day">16</span>
+                    <span class="month">Sept</span>
+                  </div>
+                  <div class="upcoming-details">
+                    <h4>Technical Interview Prep</h4>
+                    <p>with Arjun Mehta</p>
+                    <p class="time"><i class="fas fa-clock"></i> 10:00 AM - 11:30 AM</p>
+                  </div>
+                </div>
+
+                <div class="upcoming-item">
+                  <div class="upcoming-date">
+                    <span class="day">18</span>
+                    <span class="month">Sept</span>
+                  </div>
+                  <div class="upcoming-details">
+                    <h4>Resume Review</h4>
+                    <p>with Rahul Singh</p>
+                    <p class="time"><i class="fas fa-clock"></i> 3:00 PM - 4:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <div class="calendar-days">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+              </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- Calendar days will be generated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Session Request Modal (hidden by default) -->
+        <div class="modal" id="sessionModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Session Request</h2>
+              <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="session-request">
+                <div class="student-info">
+                  <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Student Avatar">
+                  <div>
+                    <h3>Priya Malhotra</h3>
+                    <p>Computer Science • B.Tech • 3rd Year</p>
+                  </div>
+                </div>
+                <div class="session-details">
+                  <div class="detail-row">
+                    <div class="detail-item">
+                      <h4><i class="fas fa-calendar"></i> Date</h4>
+                      <p>September 20, 2025</p>
+                    </div>
+                    <div class="detail-item">
+                      <h4><i class="fas fa-clock"></i> Time</h4>
+                      <p>11:00 AM - 12:00 PM</p>
+                    </div>
+                  </div>
+                  <div class="detail-item full">
+                    <h4><i class="fas fa-tag"></i> Session Type</h4>
+                    <p>Project Guidance</p>
+                  </div>
+                  <div class="detail-item full">
+                    <h4><i class="fas fa-comment"></i> Student's Note</h4>
+                    <p>I would like to discuss the approach for implementing the neural network model in my medical diagnosis project. I've been facing issues with accuracy and would appreciate your guidance.</p>
+                  </div>
+                </div>
+                <div class="session-actions">
+                  <button class="btn-outline" id="rejectSession">Reject</button>
+                  <button class="btn-outline" id="proposeNewTime">Propose New Time</button>
+                  <button class="btn-primary" id="acceptSession">Accept</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section -->
+      <section class="content-section" id="resources">
+        <div class="section-header">
+          <h1>Career Resources</h1>
+          <div class="resource-actions">
+            <button class="btn-outline" id="createResourceBtn">
+              <i class="fas fa-plus"></i> Create New Resource
+            </button>
+            <div class="search-input">
+              <i class="fas fa-search"></i>
+              <input type="text" id="resourceSearch" placeholder="Search resources...">
+            </div>
+          </div>
+        </div>
+
+        <div class="resources-container">
+          <div class="resources-sidebar">
+            <h3>Categories</h3>
+            <ul class="category-list">
+              <li class="active" data-category="all">All Resources <span>24</span></li>
+              <li data-category="resume">Resume Templates <span>5</span></li>
+              <li data-category="interview">Interview Preparation <span>8</span></li>
+              <li data-category="career">Career Guidance <span>6</span></li>
+              <li data-category="technical">Technical Resources <span>5</span></li>
+            </ul>
+            <h3>Tags</h3>
+            <div class="tag-cloud">
+              <span class="tag">Resume</span>
+              <span class="tag">Interview</span>
+              <span class="tag">Career</span>
+              <span class="tag">Technical</span>
+              <span class="tag">Software</span>
+              <span class="tag">Development</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">AI</span>
+              <span class="tag">Web</span>
+              <span class="tag">Mobile</span>
+            </div>
+          </div>
+
+          <div class="resources-grid" id="resourcesGrid">
+            <div class="resource-card" data-category="resume">
+              <div class="resource-type pdf">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="resource-info">
+                <h3>Technical Resume Template</h3>
+                <p>A professional resume template designed for software developers and engineers.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Aug 15, 2025</span>
+                  <span><i class="fas fa-download"></i> 145 downloads</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">Resume</span>
+                  <span class="tag">Template</span>
+                  <span class="tag">Technical</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Download</button>
+              </div>
+            </div>
+
+            <div class="resource-card" data-category="interview">
+              <div class="resource-type doc">
+                <i class="fas fa-file-word"></i>
+              </div>
+              <div class="resource-info">
+                <h3>Data Structures & Algorithms Questions</h3>
+                <p>A comprehensive collection of DSA questions frequently asked in technical interviews.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Jul 28, 2025</span>
+                  <span><i class="fas fa-download"></i> 210 downloads</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">DSA</span>
+                  <span class="tag">Interview</span>
+                  <span class="tag">Technical</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Download</button>
+              </div>
+            </div>
+
+            <div class="resource-card" data-category="career">
+              <div class="resource-type pdf">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="resource-info">
+                <h3>Tech Career Paths Guide</h3>
+                <p>A guide on various career paths in the tech industry, including roles, skills required, and growth opportunities.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Sept 5, 2025</span>
+                  <span><i class="fas fa-download"></i> 98 downloads</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">Career</span>
+                  <span class="tag">Guide</span>
+                  <span class="tag">Tech</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Download</button>
+              </div>
+            </div>
+
+            <div class="resource-card" data-category="technical">
+              <div class="resource-type ppt">
+                <i class="fas fa-file-powerpoint"></i>
+              </div>
+              <div class="resource-info">
+                <h3>System Design Principles</h3>
+                <p>A presentation on fundamental system design principles and architectures for scalable applications.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Aug 22, 2025</span>
+                  <span><i class="fas fa-download"></i> 132 downloads</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">System Design</span>
+                  <span class="tag">Architecture</span>
+                  <span class="tag">Technical</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Download</button>
+              </div>
+            </div>
+
+            <div class="resource-card" data-category="interview">
+              <div class="resource-type link">
+                <i class="fas fa-link"></i>
+              </div>
+              <div class="resource-info">
+                <h3>Behavioral Interview Questions</h3>
+                <p>A curated list of common behavioral interview questions with guidance on how to structure your answers.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Sept 1, 2025</span>
+                  <span><i class="fas fa-eye"></i> 178 views</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">Interview</span>
+                  <span class="tag">Behavioral</span>
+                  <span class="tag">Soft Skills</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Visit Link</button>
+              </div>
+            </div>
+
+            <div class="resource-card" data-category="resume">
+              <div class="resource-type pdf">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="resource-info">
+                <h3>Cover Letter Templates</h3>
+                <p>Professional cover letter templates with examples and guidance on customizing for different roles.</p>
+                <div class="resource-meta">
+                  <span><i class="fas fa-calendar"></i> Updated: Aug 5, 2025</span>
+                  <span><i class="fas fa-download"></i> 86 downloads</span>
+                </div>
+                <div class="tag-container">
+                  <span class="tag">Cover Letter</span>
+                  <span class="tag">Resume</span>
+                  <span class="tag">Job Application</span>
+                </div>
+              </div>
+              <div class="resource-actions">
+                <button class="btn-outline">Preview</button>
+                <button class="btn-primary">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create Resource Modal (hidden by default) -->
+        <div class="modal" id="createResourceModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Create New Resource</h2>
+              <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="resourceForm">
+                <div class="form-group">
+                  <label for="resourceTitle">Resource Title</label>
+                  <input type="text" id="resourceTitle" placeholder="Enter resource title">
+                </div>
+                <div class="form-group">
+                  <label for="resourceDescription">Description</label>
+                  <textarea id="resourceDescription" placeholder="Enter resource description"></textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="resourceType">Resource Type</label>
+                    <select id="resourceType">
+                      <option value="upload">Upload File</option>
+                      <option value="link">External Link</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="resourceCategory">Category</label>
+                    <select id="resourceCategory">
+                      <option value="resume">Resume Templates</option>
+                      <option value="interview">Interview Preparation</option>
+                      <option value="career">Career Guidance</option>
+                      <option value="technical">Technical Resources</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group" id="uploadSection">
+                  <label for="resourceFile">Upload File</label>
+                  <div class="file-upload">
+                    <input type="file" id="resourceFile">
+                    <label for="resourceFile">
+                      <i class="fas fa-upload"></i>
+                      <span>Choose a file</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group hidden" id="linkSection">
+                  <label for="resourceLink">Resource URL</label>
+                  <input type="url" id="resourceLink" placeholder="Enter resource URL">
+                </div>
+                <div class="form-group">
+                  <label for="resourceTags">Tags (comma separated)</label>
+                  <input type="text" id="resourceTags" placeholder="e.g., resume, template, technical">
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn-outline cancel-btn">Cancel</button>
+                  <button type="submit" class="btn-primary">Create Resource</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section class="content-section" id="analytics">
+        <div class="section-header">
+          <h1>Mentoring Analytics</h1>
+          <div class="period-filter">
+            <button class="period-btn active" data-period="week">Week</button>
+            <button class="period-btn" data-period="month">Month</button>
+            <button class="period-btn" data-period="quarter">Quarter</button>
+            <button class="period-btn" data-period="year">Year</button>
+          </div>
+        </div>
+
+        <div class="analytics-container">
+          <div class="analytics-summary">
+            <div class="summary-card">
+              <div class="summary-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="summary-data">
+                <h3>46</h3>
+                <p>Total Students</p>
+                <span class="trend positive">+12% <i class="fas fa-arrow-up"></i></span>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="summary-data">
+                <h3>28</h3>
+                <p>Sessions Completed</p>
+                <span class="trend positive">+8% <i class="fas fa-arrow-up"></i></span>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="summary-data">
+                <h3>47.5</h3>
+                <p>Hours Mentored</p>
+                <span class="trend positive">+15% <i class="fas fa-arrow-up"></i></span>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="summary-data">
+                <h3>4.8</h3>
+                <p>Average Rating</p>
+                <span class="trend positive">+0.2 <i class="fas fa-arrow-up"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-charts">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Sessions Over Time</h3>
+                <div class="chart-legend">
+                  <span><i class="fas fa-circle completed"></i> Completed</span>
+                  <span><i class="fas fa-circle scheduled"></i> Scheduled</span>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="sessionsChart"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Topics Mentored</h3>
+              </div>
+              <div class="chart-container">
+                <canvas id="topicsChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-details">
+            <div class="detail-card feedback">
+              <h3>Recent Feedback</h3>
+              <div class="feedback-list">
+                <div class="feedback-item">
+                  <div class="feedback-header">
+                    <div class="student-info">
+                      <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Student Avatar">
+                      <div>
+                        <h4>Priya Malhotra</h4>
+                        <p>Career Guidance Session</p>
+                      </div>
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span>5.0</span>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"Dr. Kumar was extremely helpful in guiding me through my career options. He provided valuable insights based on industry trends and my personal strengths. I feel much more confident about my future now."</p>
+                  <span class="feedback-date">September 10, 2025</span>
+                </div>
+
+                <div class="feedback-item">
+                  <div class="feedback-header">
+                    <div class="student-info">
+                      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student Avatar">
+                      <div>
+                        <h4>Rahul Singh</h4>
+                        <p>Resume Review</p>
+                      </div>
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span>4.5</span>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"The resume review session was very detailed and helpful. Dr. Kumar identified several areas for improvement and suggested specific changes that made my resume much stronger. Highly recommended!"</p>
+                  <span class="feedback-date">September 8, 2025</span>
+                </div>
+
+                <div class="feedback-item">
+                  <div class="feedback-header">
+                    <div class="student-info">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student Avatar">
+                      <div>
+                        <h4>Vikram Patel</h4>
+                        <p>Project Review</p>
+                      </div>
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span>5.0</span>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"Dr. Kumar's technical expertise was invaluable during our project review session. He spotted potential issues in our architecture and suggested elegant solutions. His guidance saved us weeks of work!"</p>
+                  <span class="feedback-date">September 5, 2025</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-card achievements">
+              <h3>Your Achievements</h3>
+              <div class="achievement-list">
+                <div class="achievement-item unlocked">
+                  <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h4>Mentor Star</h4>
+                    <p>Maintain a 4.5+ rating for 3 consecutive months</p>
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="achievement-item unlocked">
+                  <div class="achievement-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h4>Knowledge Guru</h4>
+                    <p>Help 25+ students with technical queries</p>
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-rocket"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h4>Career Launcher</h4>
+                    <p>Help 10+ students secure job placements</p>
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-text">7/10</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h4>Dedicated Mentor</h4>
+                    <p>Complete 50+ mentoring sessions</p>
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 56%"></div>
+                    </div>
+                    <span class="progress-text">28/50</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBILtis_zBeNFXBLMj6UqUTTERYLI5bio",
+      authDomain: "mentorverse-6416d.firebaseapp.com",
+      projectId: "mentorverse-6416d",
+      storageBucket: "mentorverse-6416d.appspot.com",
+      messagingSenderId: "291855397478",
+      appId: "1:291855397478:web:e7b0e8697e7d90b83a73a7",
+      measurementId: "G-QESLR29GNC"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Load mentor name from Firebase -->
+  <script>
+    // Get references to the elements
+    const mentorNameElement = document.getElementById('mentorName');
+    const headerMentorNameElement = document.getElementById('headerMentorName');
+    const welcomeMentorNameElement = document.getElementById('welcomeMentorName');
+
+    // Listen for auth state changes
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          // First try to get the display name from the auth object
+          if (user.displayName) {
+            updateMentorName(user.displayName);
+          } else {
+            // If not available, try to get it from Firestore
+            const mentorDoc = await firebase.firestore().collection('mentors').doc(user.uid).get();
+            if (mentorDoc.exists && mentorDoc.data().name) {
+              updateMentorName(mentorDoc.data().name);
+            }
+          }
+        } catch (error) {
+          console.error('Error loading mentor name:', error);
+        }
+      } else {
+        // User is not logged in, redirect to login page
+        // window.location.href = 'login.html';
+      }
+    });
+
+    // Update mentor name in all places
+    function updateMentorName(name) {
+      if (mentorNameElement) mentorNameElement.textContent = name;
+      if (headerMentorNameElement) headerMentorNameElement.textContent = name;
+      if (welcomeMentorNameElement) welcomeMentorNameElement.textContent = name.split(' ')[0];
+    }
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script type="module" src="js/inbox.js"></script>
+  <script type="module" src="js/messages.js"></script>
+  <script src="js/profiles.js"></script>
+  <script src="js/scheduling.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>
+<button class="sidebar-toggle-btn" id="sidebarToggleBtn">
+  <i class="fas fa-bars"></i>
+</button>
