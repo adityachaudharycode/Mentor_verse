@@ -172,7 +172,7 @@ const mentorData = [
         students: 500,
         about: "Expert in Computer Networks and Operating Systems",
         achievements: ["Best Mentor Award 2022", "PhD from IIT Delhi"],
-        price: "₹100/hour"
+        price: "Free Trial available"
     },
     {
         name: "Dr. Ankita Patra",
@@ -183,7 +183,7 @@ const mentorData = [
         students: 800,
         about: "Specializes in Power Systems and Control Engineering",
         achievements: ["Published 25+ Research Papers", "IIT Bombay Alumni"],
-        price: "₹150/hour"
+        price: "Free Trial available"
     },
     {
         name: "Dr. Priya Sharma",
@@ -194,7 +194,7 @@ const mentorData = [
         students: 1000,
         about: "Quantitative Aptitude and Data Interpretation Expert",
         achievements: ["99.9 percentile in CAT", "MBA from IIM Ahmedabad"],
-        price: "₹180/hour"
+        price: "Free Trial available"
     },
     {
         name: "Mr. Arun Verma",
@@ -205,7 +205,7 @@ const mentorData = [
         students: 300,
         about: "Expert in Current Affairs and Indian Polity",
         achievements: ["AIR 50 in UPSC", "Former IAS Officer"],
-        price: "₹200/hour"
+        price: "499/week"
     },
     {
         name: "Dr. Meera Patel",
@@ -216,7 +216,7 @@ const mentorData = [
         students: 600,
         about: "Data Structures and Algorithms Specialist",
         achievements: ["Microsoft Certified Trainer", "Ex-Google Engineer"],
-        price: "₹140/hour"
+        price: "Free Trial available"
     }
 ];
 
