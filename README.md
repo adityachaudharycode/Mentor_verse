@@ -73,7 +73,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Development Team
 
-- Aditya Chaudhary - Landing page, Authentication & Backend
+- Aditya Chaudhary - Landing page, Authentication & Backend &chatbot 
 - Ankita Patra - Mentor Page
 - Abhishek Ranjan - Student Page
 - Amir Hasan - Feedback Page
