@@ -4,7 +4,7 @@ Mentorverse is a platform connecting students with mentors from top institutions
 
 🌐 [Live Preview](https://adityachaudharycode.github.io/Mentor_verse/)
 
-## Features of webapp
+## Features of our webapp
 
 - Mentor-student matching system
 - Real-time chat sessions
