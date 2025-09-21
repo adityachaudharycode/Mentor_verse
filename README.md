@@ -67,7 +67,7 @@ project/
 5. Open a Pull Request
 
 ## License
-
+mail be at adityachaudhary834@gmail.com for further details:-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Development Team
