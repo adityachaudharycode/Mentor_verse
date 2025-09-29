@@ -11,7 +11,7 @@ Mentorverse is a platform connecting students with mentors from top institutions
 - Resource sharing platform for students and mentors
 - Analytics dashboard for mentors
 - Students progress tracking
-- Scheduling systems for mentoring sessions
+- Scheduling systems for mentoring sessions also schedule for students
 ## Tech Stack
 
 - Frontend:HTML, CSS, JavaScript, React, TypeScript, Tailwind CSS
