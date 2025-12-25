@@ -68,7 +68,7 @@ project/
 
 ## License
 mail be at adityachaudhary834@gmail.com for further details:-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details(dont copy without permission)
 
 ## Development Team
 
