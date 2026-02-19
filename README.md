@@ -10,7 +10,7 @@ Mentorverse is a platform connecting students with mentors from top institutions
 - Real-time chat sessions with mentors using firebase realtime data
 - Resource sharing platform for students and mentors
 - Analytics dashboard for mentors
-- Students progress track records updates regularly
+- Students progress track records updates regularly 
 - Scheduling systems for mentoring sessions also schedule for students
 ## Tech Stack
 
@@ -68,7 +68,7 @@ project/
 
 ## License
 mail be at adityachaudhary834@gmail.com for further details:-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details(dont copy without permission)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details(dont copy without permission from the owner)
 
 ## Development Team
 
