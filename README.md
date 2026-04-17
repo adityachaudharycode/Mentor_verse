@@ -2,7 +2,7 @@
 
 Mentorverse is a platform connecting students with mentors from top institutions like IITs and NITs, facilitating educational guidance and career development.
 
-🌐 [Live Preview](https://adityachaudharycode.github.io/Mentor_verse/)
+🌐 [Live Preview Here](https://adityachaudharycode.github.io/Mentor_verse/)
 
 ## Features of our webapp are as follows
 
